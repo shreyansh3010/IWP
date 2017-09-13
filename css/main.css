@@ -33,6 +33,7 @@ body {
 .login_btn {
     background: #3aa8d1;
     color: white;
+    margin-bottom: 20px;
 }
 
 .login_btn:hover {
@@ -41,8 +42,14 @@ body {
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
 
+.test {
+    border: 1px solid black;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    font-size: 1em;
+}
+
 @media(max-width:1000px) {
     body {
-        padding: 18vh 8%;
+        padding: 12vh 8%;
     }
 }
