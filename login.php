@@ -33,10 +33,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link href="style/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
     
 
 
@@ -57,7 +57,7 @@
                     </form>
                     <br>
                     <br>
-                    <center><a>Forgot Password?</a></center>
+                    <center><a href="password.php">Forgot Password?</a></center>
                 </div>
             </div>
         </div>

@@ -87,6 +87,32 @@ function Login($username, $password){
 	
 }
 
+function SendPassword($username, $mobile){
+	global $con;
+	
+	 $username = mysqli_real_escape_string($con,$username); 
+     $mobile = mysqli_real_escape_string($con,$mobile); 	  
+	  
+     $sql = "SELECT name,password,username FROM user WHERE username = '$username' and mobile = '$mobile'"; 
+     $result = mysqli_query($con,$sql); 
+     $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
+     $count = mysqli_num_rows($result); 
+	 
+	 if($count == 1) { 
+	 	$sms_message = 'Hi '.$row['name'].',\r\nyour login credentials are\r\n\r\n'.'Username : '.$row['username'].'\r\nPassword : '.$row['password'].'\r\n\r\nGood luck :)';
+		include('way2sms-api.php');
+			$res = sendWay2SMS('7073112280', '31121992', $mobile, $sms_message);
+			if (is_array($res)){
+				return true;
+				}
+			exit;
+     }
+	 else { 
+	 return false;
+     } 
+	
+}
+
 function TotalBlogCount(){
 	global $con;
 	
