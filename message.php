@@ -10,7 +10,7 @@ include('custom.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>E-billing</title>
+    <title>E-billing | Send Message</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="style/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
@@ -46,7 +46,7 @@ include('custom.php');
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="invoice.php">Invoice</a></li>
-        <li><a href="#">Send message</a></li>
+        <li><a href="message.php">Send message</a></li>
         <li><a href="previewBill.php">Preview Bills</a></li>
         <li><a href="#">Profile</a></li>
         <li onclick="logout()"><a href="#">Logout</a></li>
@@ -61,17 +61,12 @@ include('custom.php');
 			}
 		}
 </script>
-<h5 class="wow FadeInLeft animted date_section">Today is <b>
-  <?php 
-  echo date("Y-m-d")." (". date("l").")";
-  ?>
-</b></h5>
+<h5 class="profile_name wow FadeInDown animted">Hi, <?php
+    echo  $_SESSION['name']." (". $_SESSION['username'].")";;
+?>
+</h5>
 <section class="home_section">
-  <h1 class="wow FadeInDown animted"><b>Welcome <?php echo $_SESSION['name']; ?><br><br>to E-billing system :)</b></h1>
-  <br>
-  <div class="row">
-    <a href="invoice.php"><button type="submit" class=" wow FadeInUp animted btn proceed_btn col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3"><b>Proceed</b></button></a>
-  </div>
+  
 </section>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

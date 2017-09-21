@@ -7,15 +7,18 @@
       // username and password sent from form  
        
       $username = $_POST['username']; 
-      $password = $_POST['password'];
+      $mobile = $_POST['mobile'];
 
-      $login = Login($username,$password);	  
+      $login = SendPassword($username,$mobile);	  
 	  
 	  if($login){
-		  header('location: index.php');
+          if(Display('Your password sent to your mobile successfully :)')){
+		  header('Refresh: 0');
+		  exit();	
+		  }
 	  }
 	  else {
-		  if(Display('Your Login Name or Password is invalid')){
+		  if(Display('Your Username or Mobile no. is invalid !')){
 		  header('Refresh: 0');
 		  exit();	
 		  }
@@ -37,7 +40,6 @@
     <link href="style/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
     
 
@@ -46,20 +48,22 @@
 <body style="background: #00aeef;background: -webkit-linear-gradient(to right, #00aeef, #f2fcfe);background: linear-gradient(to right, #00aeef, #f2fcfe);"> 
     <div class="container">
         <div class="row">
-            <div class="login_outter_div col-md-4 col-md-offset-4 col-xs-12 col-sm-10 wow bounceInDown animted">
-                <div class="inner_div">
+            <div class="col-md-4 col-sm-8 col-xs-12 col-md-offset-4  wow bounceInRight animted">
+                <div class="forgetpass">
+                    <div class="inner_div">
                     <form action = "" method = "post">
                         <div class="row">
-                            <center><img class="user_img" src="img/user.png" alt="useer">
-                            <h2 style="margin: -1vh auto 2vh auto;font-family: 'Coda', cursive;letter-spacing: 1px;">Staff Login</h2></center>
-                            <input type="text" name = "username" class="input_area col-md-12 col-sm-12 col-xs-12" placeholder="Username"/>
-                            <input type="password" name = "password" class="input_area col-md-12 col-sm-12 col-xs-12" placeholder="Password"/>
-                            <button type="submit" class="btn btn-1 login_btn col-md-12 col-sm-12 col-xs-12"><b>Login</b></button>
+                            <h2 style="margin: -1vh auto 2vh auto;font-family: 'Coda', cursive;">Recover Password</h2></center>
+                            <br>
+                            <input type="text" name = "username" class="input_area col-md-12 col-sm-12 col-xs-12" placeholder="Username" autocomplete="off" required/>
+                            <input type="text" name = "mobile" class="input_area col-md-12 col-sm-12 col-xs-12" placeholder="Mobile no." autocomplete="off" required/>
+                            <button type="submit" class="btn login_btn col-md-12 col-sm-12 col-xs-12"><b>Send Password</b></button>
                         </div>
+                        <br>
                     </form>
                     <br>
-                    <br>
-                    <center><a href="password.php">Forgot Password?</a></center>
+                    <center><a href="login.php">Go back to Login</a></center>
+                </div>
                 </div>
             </div>
         </div>
