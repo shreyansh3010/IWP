@@ -25,6 +25,8 @@
     border: 1px solid #00aeef;
     border-radius: 0px;
     padding: 10px;
+    resize: none;
+    letter-spacing: 1px;
 }
 
 .login_btn {
@@ -65,10 +67,15 @@
     text-decoration: none;
 }
 
-.test {
-    border: 1px solid black;
+.bill_card {
+    border: 2px solid #ffffff;
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-    font-size: 1em;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.bill_detail {
+    border-left: 3px solid #ffffff;
 }
 
 .forgetpass {
@@ -87,6 +94,15 @@
     width: 100%;
     padding: 80px;
     text-align: center;
+    font-family: 'Coda', cursive;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+}
+
+.bill_section {
+    color: white;
+    width: 100%;
+    padding: 40px;
     font-family: 'Coda', cursive;
     letter-spacing: 2px;
     font-size: 1.5em;
@@ -117,11 +133,101 @@
     text-align: left;
 }
 
-.profile_name{
-    color:#ffffff;
+.profile_name {
+    color: #ffffff;
     color: white;
     font-family: 'Coda', cursive;
     letter-spacing: 2px;
     padding-right: 20px;
     text-align: right;
+}
+
+
+/*message section*/
+
+.message_section {
+    padding: 20px;
+}
+
+.message_outer {
+    margin-top: 1vh;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-family: 'Coda', cursive;
+    letter-spacing: 1px;
+}
+
+#sms {
+    display: none;
+    padding: 50px 20px;
+}
+
+#e_mail {
+    display: inherit;
+    padding: 50px 20px;
+}
+
+
+/*message section switch*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2196F3;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
