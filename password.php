@@ -9,9 +9,9 @@
       $username = $_POST['username']; 
       $mobile = $_POST['mobile'];
 
-      $login = SendPassword($username,$mobile);	  
+      $send_pass = SendPassword($username,$mobile);	  
 	  
-	  if($login){
+	  if($send_pass){
           if(Display('Your password sent to your mobile successfully :)')){
 		  header('Refresh: 0');
 		  exit();	

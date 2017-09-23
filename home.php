@@ -46,7 +46,7 @@ include('custom.php');
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="invoice.php">Invoice</a></li>
-        <li><a href="#">Send message</a></li>
+        <li><a href="message.php">Send message</a></li>
         <li><a href="previewBill.php">Preview Bills</a></li>
         <li><a href="#">Profile</a></li>
         <li onclick="logout()"><a href="#">Logout</a></li>

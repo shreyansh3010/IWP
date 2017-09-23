@@ -28,6 +28,7 @@ function RegisterUser($name, $email, $username, $password){
 	
 }
 
+
 function CheckEmail($email){
 	global $con;
 	
@@ -101,7 +102,7 @@ function SendPassword($username, $mobile){
 	 if($count == 1) { 
 	 	$sms_message = 'Hi '.$row['name'].',\r\nyour login credentials are\r\n\r\n'.'Username : '.$row['username'].'\r\nPassword : '.$row['password'].'\r\n\r\nGood luck :)';
 		include('way2sms-api.php');
-			$res = sendWay2SMS('7073112280', '31121992', $mobile, $sms_message);
+			$res = sendWay2SMS('8220105035', '31121992', $mobile, $sms_message);
 			if (is_array($res)){
 				return true;
 				}
@@ -113,14 +114,49 @@ function SendPassword($username, $mobile){
 	
 }
 
-function TotalBlogCount(){
+function SendMsg($mobile,$sms_message){
+	global $con;
+	include('way2sms-api.php');
+	$res = sendWay2SMS('8220105035', '31121992', $mobile, $sms_message);
+	if (is_array($res)){
+			return true;
+	}
+	 else { 
+	 return false;
+     } 
+}
+
+
+function SendEmail($email,$message){
+	global $con;
+
+	// To send HTML mail, the Content-type header must be set
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Create email headers
+		$headers .= 'From: '.'E-billing System'."\r\n".
+			'Reply-To: '.'Ebilling System'."\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+
+	$res = mail($email, 'From E-billing System', $message, $headers);
+	if (is_array($res)){
+			return true;
+	}
+	 else { 
+	 return false;
+     } 
+}
+
+
+function TotalGuestCount(){
 	global $con;
 	
-	$sql = mysqli_query($con,"SELECT MAX(id) as id FROM blog");
+	$sql = mysqli_query($con,"SELECT MAX(bill_no) as bill_no FROM bill_details");
 	$count = mysqli_fetch_array($sql,MYSQLI_ASSOC); 
 	
 	if($sql){
-		return $count['id'];
+		return $count['bill_no'];
 	}
 	else {
 		return false;

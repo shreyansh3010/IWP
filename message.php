@@ -1,9 +1,6 @@
-
 <?php 
 include('check.php');
 include('custom.php');
-
-
 ?>
 <html>
 
@@ -24,6 +21,21 @@ include('custom.php');
             }).done(function(data) {
             alert(data);
             });
+        }
+
+        function change_view(){
+           var x = document.getElementById("sms");
+           var y = document.getElementById("switch_toggle");
+           var z = document.getElementById("e_mail");
+           if(y.checked == true){
+                 x.style.display = "none";
+                 z.style.display = "inherit";
+           }
+           else if(y.checked == false){
+               z.style.display = "none";
+               x.style.display = "inherit";
+           }
+          
         }
     </script>
 </head>
@@ -65,8 +77,46 @@ include('custom.php');
     echo  $_SESSION['name']." (". $_SESSION['username'].")";;
 ?>
 </h5>
-<section class="home_section">
-  
+<section class="message_section">
+  <div class="container">
+    <div class="row">
+        <div class="message_outer col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 wow zoomIn animted">
+                <div class="inner_div">
+                        <div class="row">
+                            <center><h3>Send message</h3>
+                            <br>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <h4><b>SMS</b></h4>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <label class="switch">
+                                <input type="checkbox" id="switch_toggle" onClick="change_view()" checked>
+                                <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <h4><b>E-MAIL</b></h4>
+                            </div></center>
+                            <div id="sms">
+                                <form action = "sms.php" method = "post">
+                                    <input type="text" name = "mobile" class="input_area col-md-12 col-sm-12 col-xs-12" placeholder="Mobile no." autocomplete="off" required/>
+                                    <textarea type="text" name = "message" class="input_area col-md-12 col-sm-12 col-xs-12" rows="5" resize="none" placeholder="Message" autocomplete="off" required/></textarea>
+                                    <button type="submit" class="btn login_btn  col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12"><b>Send SMS</b></button>
+                                </form>
+                            </div>
+                            <div id="e_mail">
+                                <form action = "email.php" method = "post">
+                                    <input type="email" name = "email" class="input_area col-md-12 col-sm-12 col-xs-12" placeholder="Email Id" autocomplete="off" required/>
+                                    <textarea type="text" name = "message_email" class="input_area col-md-12 col-sm-12 col-xs-12" rows="5" resize="none" placeholder="Message" autocomplete="off" required/></textarea>
+                                    <button type="submit" class="btn login_btn  col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12"><b>Send E-mail</b></button>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                </div>
+        </div>
+    </div>
+  </div>
 </section>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

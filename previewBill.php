@@ -3,6 +3,7 @@
 include('check.php');
 include('custom.php');
 
+$bill_count = TotalGuestCount();
 
 ?>
 <html>
@@ -24,6 +25,9 @@ include('custom.php');
             }).done(function(data) {
             alert(data);
             });
+        }
+        function getGuest(x){
+          alert(x);
         }
     </script>
 </head>
@@ -62,11 +66,47 @@ include('custom.php');
 		}
 </script>
 <h5 class="profile_name wow FadeInDown animted">Hi, <?php
-    echo  $_SESSION['name']." (". $_SESSION['username'].")";;
+    echo  $_SESSION['name']." (". $_SESSION['username'].")";
 ?>
 </h5>
-<section class="home_section">
-  
+<section class="bill_section">
+  <div class="row">
+  <?php
+    for($bill_no = $bill_count; $bill_no >= 1; $bill_no--){
+      $sql = mysqli_query($con, "SELECT name, bill_date, room_type, room_no, checkin_date, checkout_date, no_of_days, room_rent, extra, total FROM bill_details WHERE bill_no='$bill_no'");
+      $row = mysqli_fetch_array($sql, MYSQLI_ASSOC);
+		$name = $row['name'];
+		$myDate = $row['bill_date'];
+		$room_type = $row['room_type'];
+		$room = $row['room_no'];
+		$from_date = $row['checkin_date'];
+		$till_date = $row['checkout_date'];
+		$no_day = $row['no_of_days'];
+		$room_rent = $row['room_rent'];
+		$extra = $row['extra'];
+		$total = $row['total']; ?>
+    <div class="col-md-6 col-xs-12" style="padding:10px">
+     <?php echo "<div class=\"bill_card\" onClick=\"getGuest('$bill_no')\">" ?>
+        <div class="row">
+          <div class="col-md-4">
+              <h4><b>Bill No.: <?php echo $bill_no ?></b></h4>
+              <br>
+              <h6>Room no.: <?php echo $room?></h6>
+              <h6>Date: <?php echo $myDate?></h6>
+          </div>
+
+          <div class="col-md-8 bill_detail">
+              <h6>Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<?php echo $name?></h6>
+              <h6>RoomType: <?php echo $room_type?></h6>
+              <h6>Checkin: &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $from_date?>&nbsp;&nbsp;&nbsp;&nbsp;Checkout: <?php echo $till_date?></h6>
+              <h6>Days: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $no_day?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roomrent: <?php echo $room_rent?></h6>
+              <h6>Extra: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $extra?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total?></h6>
+          </div>
+        </div>
+      </div>
+    </div> 
+   <?php }?>
+  </div>
 </section>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
