@@ -141,7 +141,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <h5 style="margin-top:20px;margin-bottom:20px;"><b>USERNAME : <?php echo  $rows['username'] ;?></b></h5></center>
                                     <input type="password" name = "pro_password_old" class="input_area col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3" placeholder="Old Password" required/>
                                     <input type="password" name = "pro_password" class="input_area col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3" placeholder="New Password" required/>
-                                    <button type="submit" class="btn col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3" style="background-color:#2196F3;color:#ffffff"><b>Update</b></button>
+                                    <button type="submit" class="btn profil_update col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3"><b>Update</b></button>
                                 </div>
                             </form>
                         </div>

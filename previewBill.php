@@ -17,19 +17,6 @@ $bill_count = TotalGuestCount();
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
-    
-    <script>
-        var mult = function(arg1, arg2){
-            $.ajax({
-            url: "new2.php?action=mult&arg1="+arg1+"&arg2="+arg2
-            }).done(function(data) {
-            alert(data);
-            });
-        }
-        function getGuest(x){
-          alert(x);
-        }
-    </script>
 </head>
 
 <body style="background: #00aeef;">
@@ -84,29 +71,31 @@ $bill_count = TotalGuestCount();
 		$no_day = $row['no_of_days'];
 		$room_rent = $row['room_rent'];
 		$extra = $row['extra'];
-		$total = $row['total']; ?>
-    <div class="col-md-6 col-xs-12" style="padding:10px">
-     <?php echo "<div class=\"bill_card\" >" ?>
-        <div class="row">
-          <div class="col-md-4">
-              <h4><b>Bill No.: <?php echo $bill_no ?></b></h4>
-              <br>
-              <h6>Room no.: <?php echo $room?></h6>
-              <h6>Date: <?php echo $myDate?></h6>
-          </div>
+    $total = $row['total']; ?>
+    <a href="getdetail.php?bill_no=<?php echo $bill_no ?>">
+      <div class="col-md-6 col-xs-12 wow fadeInUp animted" style="padding:10px">
+      <?php echo "<div class=\"bill_card\" >" ?>
+          <div class="row">
+            <div class="col-md-4">
+                <span class="bill_no"><h4><b>Bill No.: <?php echo $bill_no ?></b></h4></span>
+                <br>
+                <h6>Room no.: <?php echo $room?></h6>
+                <h6>Date: <?php echo $myDate?></h6>
+            </div>
 
-          <div class="col-md-8 bill_detail">
-          <a href="test2.php?bill_no=<?php echo $bill_no ?>">
-              <h6>Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<?php echo $name?></h6>
-              <h6>RoomType: <?php echo $room_type?></h6>
-              <h6>Checkin: &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $from_date?>&nbsp;&nbsp;&nbsp;&nbsp;Checkout: <?php echo $till_date?></h6>
-              <h6>Days: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $no_day?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roomrent: <?php echo $room_rent?></h6>
-              <h6>Extra: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $extra?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total: <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total?></b></h6>
-              </a>
+            <div class="col-md-8 bill_detail">
+            
+                <h6>Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<?php echo $name?></h6>
+                <h6>RoomType: <?php echo $room_type?></h6>
+                <h6>Checkin: &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $from_date?>&nbsp;&nbsp;&nbsp;&nbsp;Checkout: <?php echo $till_date?></h6>
+                <h6>Days: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $no_day?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roomrent: <?php echo $room_rent?></h6>
+                <h6>Extra: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span class="extar_price"><?php echo $extra?></span></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total: <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="total_price"><?php echo $total?></span></b></h6>
+                
+            </div>
           </div>
         </div>
       </div>
-    </div> 
+    </a> 
    <?php }?>
   </div>
 </section>

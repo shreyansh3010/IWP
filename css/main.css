@@ -67,15 +67,42 @@
     text-decoration: none;
 }
 
+.total_price {
+    color: #14aa2b !important;
+}
+
+.extar_price {
+    color: #2f14a9 !important;
+}
+
+.bill_no {
+    color: #00aeef !important;
+}
+
 .bill_card {
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
+    background-color: #ffffff;
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     border-radius: 10px;
     padding: 20px;
+    color: #000000;
+}
+
+.bill_card a {
+    color: #000000;
+}
+
+.bill_card a:hover {
+    color: #000000;
+    text-decoration: none;
 }
 
 .bill_detail {
-    border-left: 3px solid #ffffff;
+    border-left: 3px solid #00aeef;
+}
+
+.btn_row {
+    margin-top: 50px !important;
 }
 
 .forgetpass {
@@ -242,6 +269,19 @@ input:checked+.slider:before {
     margin-top: 30px;
 }
 
+.profil_update {
+    background-color: #2196F3;
+    color: #ffffff !important;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+
+.profil_update:hover {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
 @media(max-width: 767px) {
     .user_info {
         border-top: 3px solid #00aeef !important;
@@ -249,5 +289,9 @@ input:checked+.slider:before {
         font-size: 1.2em;
         margin-top: 30px;
         padding-top: 20px;
+    }
+    .bill_detail {
+        border-top: 3px solid #00aeef;
+        border-left: none;
     }
 }
