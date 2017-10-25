@@ -1,7 +1,7 @@
-<?php 
-
+<?php  
    include('config.php');
    include('custom.php');
+
     
    if($_SERVER["REQUEST_METHOD"] == "POST") { 
       // username and password sent from form  
@@ -16,8 +16,7 @@
 	  }
 	  else {
 		  if(Display('Your Login Name or Password is invalid')){
-		  header('Refresh: 0');
-		  exit();	
+		  header('Refresh: 0');	
 		  }
 	  }
    }

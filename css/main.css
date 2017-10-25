@@ -231,3 +231,23 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.user_info {
+    border-left: 3px solid #00aeef;
+    font-size: 1.2em;
+}
+
+.change_pass {
+    border-top: 3px solid #00aeef !important;
+    margin-top: 30px;
+}
+
+@media(max-width: 767px) {
+    .user_info {
+        border-top: 3px solid #00aeef !important;
+        border-left: none;
+        font-size: 1.2em;
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+}

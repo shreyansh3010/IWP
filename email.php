@@ -12,13 +12,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	  
 	  if($send_msg){
           if(Display('Message send successfully :)')){
-		  header('Location: message.php');
+		  header('location: message.php');
 		  exit();	
 		  }
 	  }
 	  else {
 		  if(Display('Error occured')){
-		  header('Location: message.php');
+		  header('location: message.php');
 		  exit();	
 		  }
 	  }

@@ -48,7 +48,7 @@ include('custom.php');
         <li><a href="invoice.php">Invoice</a></li>
         <li><a href="message.php">Send message</a></li>
         <li><a href="previewBill.php">Preview Bills</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="profile.php">Profile</a></li>
         <li onclick="logout()"><a href="#">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

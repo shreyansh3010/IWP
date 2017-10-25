@@ -13,14 +13,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	  
 	  if($send_msg){
           if(Display('Message send successfully :)')){
-		  header('Location: message.php');
-		  exit();	
+		  echo "<script>window.top.location='http://ebill.ml/message.php'</script>"	
 		  }
 	  }
 	  else {
 		  if(Display('Error occured')){
-		  header('Location: message.php');
-		  exit();	
+		   echo "<script>window.top.location='http://ebill.ml/message.php'</script>"	
 		  }
 	  }
    }

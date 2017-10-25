@@ -52,7 +52,7 @@ $bill_count = TotalGuestCount();
         <li><a href="invoice.php">Invoice</a></li>
         <li><a href="message.php">Send message</a></li>
         <li><a href="previewBill.php">Preview Bills</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="profile.php">Profile</a></li>
         <li onclick="logout()"><a href="#">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -86,7 +86,7 @@ $bill_count = TotalGuestCount();
 		$extra = $row['extra'];
 		$total = $row['total']; ?>
     <div class="col-md-6 col-xs-12" style="padding:10px">
-     <?php echo "<div class=\"bill_card\" onClick=\"getGuest('$bill_no')\">" ?>
+     <?php echo "<div class=\"bill_card\" >" ?>
         <div class="row">
           <div class="col-md-4">
               <h4><b>Bill No.: <?php echo $bill_no ?></b></h4>
@@ -96,11 +96,13 @@ $bill_count = TotalGuestCount();
           </div>
 
           <div class="col-md-8 bill_detail">
+          <a href="test2.php?bill_no=<?php echo $bill_no ?>">
               <h6>Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<?php echo $name?></h6>
               <h6>RoomType: <?php echo $room_type?></h6>
               <h6>Checkin: &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $from_date?>&nbsp;&nbsp;&nbsp;&nbsp;Checkout: <?php echo $till_date?></h6>
               <h6>Days: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $no_day?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roomrent: <?php echo $room_rent?></h6>
-              <h6>Extra: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $extra?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total?></h6>
+              <h6>Extra: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $extra?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total: <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total?></b></h6>
+              </a>
           </div>
         </div>
       </div>

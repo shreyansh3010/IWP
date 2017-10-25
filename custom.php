@@ -88,6 +88,24 @@ function Login($username, $password){
 	
 }
 
+function pro_update($password, $userid){
+	global $con;
+	 
+    $password = mysqli_real_escape_string($con,$password);
+	$userid = mysqli_real_escape_string($con,$userid);
+
+	$sql = "UPDATE user SET password='$password' WHERE userid='$userid'";
+	$result = mysqli_query($con,$sql);
+
+	if($result){
+		return true;
+	}
+	else{
+		return false;
+	}
+
+}
+
 function SendPassword($username, $mobile){
 	global $con;
 	
@@ -135,12 +153,12 @@ function SendEmail($email,$message){
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 	// Create email headers
-		$headers .= 'From: '.'E-billing System'."\r\n".
-			'Reply-To: '.'Ebilling System'."\r\n" .
+		$headers .= 'From: '.'ebill.ml'."\r\n".
+			'Reply-To: '.'ebill.ml'."\r\n" .
 			'X-Mailer: PHP/' . phpversion();
 
-	$res = mail($email, 'From E-billing System', $message, $headers);
-	if (is_array($res)){
+	$res = mail($email, 'Message from Hotel Girnar', $message, $headers);
+	if ($res){
 			return true;
 	}
 	 else { 
